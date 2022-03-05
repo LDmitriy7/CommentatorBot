@@ -30,7 +30,7 @@ async def send_comment(_, msg: types.Message):
     if msg.chat.type not in ["group", "supergroup"]:
         return
 
-    if not msg.forward_from_chat:
+    if not msg.sender_chat:
         return
 
     log.warning(f'Send message to Chat(id={msg.chat.id}, title="{msg.chat.title}")')
