@@ -1,4 +1,3 @@
-import asyncio
 import logging
 
 from pyrogram import types
@@ -46,4 +45,4 @@ async def send_comment(_, msg: types.Message):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.WARNING)
 
-    bot.start()
+    bot.run()
