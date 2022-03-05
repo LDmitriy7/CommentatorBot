@@ -12,3 +12,4 @@ class Api:
 
 
 SEND_AS_CHAT_ID = misc['send_as_chat_id']
+MSG_TEXT = misc['msg_text']

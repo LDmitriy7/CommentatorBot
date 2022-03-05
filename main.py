@@ -2,7 +2,7 @@ import logging
 
 from pyrogram import types
 
-from config import SEND_AS_CHAT_ID
+from config import SEND_AS_CHAT_ID, MSG_TEXT
 from loader import bot, log
 
 
@@ -37,7 +37,7 @@ async def send_comment(_, msg: types.Message):
 
     try:
         await bot.set_send_as_chat(msg.chat.id, SEND_AS_CHAT_ID)
-        await msg.reply('ХУЙ ВОЙНЕ')
+        await msg.reply(MSG_TEXT)
     except Exception as e:
         log.exception(e)
 
