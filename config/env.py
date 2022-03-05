@@ -1,6 +1,7 @@
 import toml
 
 env = toml.load('env.toml')
+misc: dict = env['Misc']
 
 
 class Api:
@@ -8,3 +9,6 @@ class Api:
 
     ID = data['id']
     HASH = data['hash']
+
+
+SEND_AS_CHAT_ID = misc['send_as_chat_id']

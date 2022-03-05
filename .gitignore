@@ -3,6 +3,7 @@
 
 sessions/
 env.toml
+unknown_errors.txt
 
 # IntelliJ project files
 .idea

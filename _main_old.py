@@ -29,23 +29,18 @@ async def on_startup():
 
 @bot.on_message()
 async def send_comment(_, msg: types.Message):
-    if not msg.forward_from_chat:
-        return
+    if msg.forward_from_chat:
+        if msg.chat.id in TARGET_CHAT_IDS:
+            log.warning(f'send message to Chat(id={msg.chat.id}, title="{msg.chat.title}")')
 
-    if msg.chat.id not in TARGET_CHAT_IDS:
-        return
-
-    log.warning(f'Send message to Chat(id={msg.chat.id}, title="{msg.chat.title}")')
-
-    try:
-        await bot.set_send_as_chat(msg.chat.id, SEND_AS_CHAT_ID)
-        await msg.reply('ХУЙ ВОЙНЕ')
-    except Exception as e:
-        log.exception(e)
+            try:
+                await msg.reply('ХУЙ ВОЙНЕ')
+            except Exception as e:
+                log.exception(e)
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.WARNING)
+    logging.basicConfig(level=logging.WARNING, filename='.log')
 
     loop = asyncio.get_event_loop()
     loop.create_task(on_startup())
